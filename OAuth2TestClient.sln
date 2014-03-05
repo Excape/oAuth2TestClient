@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2TestClient", "OAuth2TestClient\OAuth2TestClient.csproj", "{6ED7A806-0B99-4398-B33B-BF05BC4F8527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFlowTest", "CodeFlowTest\CodeFlowTest.csproj", "{3009FA39-EE31-4F75-8AF9-41BB44F822FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Constants.csproj", "{4A6C4BB0-B134-4493-BCF9-B7B35D34D6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRessourceServer", "TestRessourceServer\TestRessourceServer.csproj", "{7782184C-34C4-4250-803C-211F382674C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ED7A806-0B99-4398-B33B-BF05BC4F8527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED7A806-0B99-4398-B33B-BF05BC4F8527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED7A806-0B99-4398-B33B-BF05BC4F8527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED7A806-0B99-4398-B33B-BF05BC4F8527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3009FA39-EE31-4F75-8AF9-41BB44F822FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3009FA39-EE31-4F75-8AF9-41BB44F822FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3009FA39-EE31-4F75-8AF9-41BB44F822FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3009FA39-EE31-4F75-8AF9-41BB44F822FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6C4BB0-B134-4493-BCF9-B7B35D34D6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6C4BB0-B134-4493-BCF9-B7B35D34D6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6C4BB0-B134-4493-BCF9-B7B35D34D6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6C4BB0-B134-4493-BCF9-B7B35D34D6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7782184C-34C4-4250-803C-211F382674C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7782184C-34C4-4250-803C-211F382674C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7782184C-34C4-4250-803C-211F382674C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7782184C-34C4-4250-803C-211F382674C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
