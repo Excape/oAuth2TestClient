@@ -8,7 +8,7 @@ namespace Constants
 {
     public class Constant
     {
-        public const string AuthHost = "localhost:44301";
+        public const string AuthHost = "localhost:44300";
         public const string ValidateUri = "http://localhost:55226/api/token";
         public const string ClientId = "TestClient";
         public const string Application = "HsrTestApp";
@@ -20,6 +20,7 @@ namespace Constants
 
         public const string CodeClientId = "HsrCodeClient";
         public const string RedirectUriCode = "oauthclientcode://";
+        public const string RedirectUriApi = "oauthapi://";
         public const string CodeClientSecret = "secret";
 
     }
