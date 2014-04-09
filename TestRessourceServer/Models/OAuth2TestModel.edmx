@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OAuth2TestDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="OAuth2TestDbModelStoreContainer">
+          <EntitySet Name="Director" EntityType="OAuth2TestDbModel.Store.Director" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Movie" EntityType="OAuth2TestDbModel.Store.Movie" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_dbo_Movie_dbo_Director_DirectorId" Association="OAuth2TestDbModel.Store.FK_dbo_Movie_dbo_Director_DirectorId">
+            <End Role="Director" EntitySet="Director" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Director">
+          <Key>
+            <PropertyRef Name="DirectorId" />
+          </Key>
+          <Property Name="DirectorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="40" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="60" />
+          <Property Name="DirectorId" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_Movie_dbo_Director_DirectorId">
+          <End Role="Director" Type="OAuth2TestDbModel.Store.Director" Multiplicity="0..1" />
+          <End Role="Movie" Type="OAuth2TestDbModel.Store.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="DirectorId" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="DirectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OAuth2TestDbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OAuth2TestDbEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Director" EntityType="OAuth2TestDbModel.Director" />
+          <EntitySet Name="Movie" EntityType="OAuth2TestDbModel.Movie" />
+          <AssociationSet Name="FK_dbo_Movie_dbo_Director_DirectorId" Association="OAuth2TestDbModel.FK_dbo_Movie_dbo_Director_DirectorId">
+            <End Role="Director" EntitySet="Director" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Director">
+          <Key>
+            <PropertyRef Name="DirectorId" />
+          </Key>
+          <Property Name="DirectorId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="Lastname" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Movie" Relationship="OAuth2TestDbModel.FK_dbo_Movie_dbo_Director_DirectorId" FromRole="Director" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="DirectorId" Type="Int32" />
+          <NavigationProperty Name="Director" Relationship="OAuth2TestDbModel.FK_dbo_Movie_dbo_Director_DirectorId" FromRole="Movie" ToRole="Director" />
+        </EntityType>
+        <Association Name="FK_dbo_Movie_dbo_Director_DirectorId">
+          <End Role="Director" Type="OAuth2TestDbModel.Director" Multiplicity="0..1" />
+          <End Role="Movie" Type="OAuth2TestDbModel.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="DirectorId" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="DirectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OAuth2TestDbModelStoreContainer" CdmEntityContainer="OAuth2TestDbEntities">
+          <EntitySetMapping Name="Director">
+            <EntityTypeMapping TypeName="OAuth2TestDbModel.Director">
+              <MappingFragment StoreEntitySet="Director">
+                <ScalarProperty Name="DirectorId" ColumnName="DirectorId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movie">
+            <EntityTypeMapping TypeName="OAuth2TestDbModel.Movie">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DirectorId" ColumnName="DirectorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

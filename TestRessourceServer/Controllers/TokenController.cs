@@ -21,6 +21,10 @@ namespace TestRessourceServer.Controllers
             try
             {
                 ClaimsPrincipal principal = authN.Authenticate(request);
+                if (principal.Identity.IsAuthenticated == false)
+                {
+                    return StatusCode(HttpStatusCode.Forbidden);
+                }
             } catch (SecurityTokenValidationException ex)
             {
                 return StatusCode(HttpStatusCode.Forbidden);

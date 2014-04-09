@@ -23,5 +23,7 @@ namespace Constants
         public const string RedirectUriApi = "oauthapi://";
         public const string CodeClientSecret = "secret";
 
+        public const string RessourceUrl = "http://localhost:55226/api/ressource/";
+
     }
 }
