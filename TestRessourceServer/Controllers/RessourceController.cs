@@ -49,22 +49,22 @@ namespace TestRessourceServer.Controllers
 
         private static bool AuthorizeRequest(HttpRequestMessage request)
         {
-            return true;
-            //var authN = new HttpAuthentication(WebApiConfig.configuration);
 
-            //// Code to minimize time after token expiration when token is still successfully validated. Just for test purposes!
-            //authN.Configuration.Mappings.First().TokenHandler.Configuration.MaxClockSkew = TimeSpan.FromSeconds(3);
+            var authN = new HttpAuthentication(WebApiConfig.configuration);
 
-            //ClaimsPrincipal principal;
-            //try
-            //{
-            //    principal = authN.Authenticate(request);
-            //}
-            //catch (SecurityTokenValidationException ex)
-            //{
-            //    return false;
-            //}
-            //return principal.Identity.IsAuthenticated;
+            // Code to minimize time after token expiration when token is still successfully validated. Just for test purposes!
+            authN.Configuration.Mappings.First().TokenHandler.Configuration.MaxClockSkew = TimeSpan.FromSeconds(3);
+
+            ClaimsPrincipal principal;
+            try
+            {
+                principal = authN.Authenticate(request);
+            }
+            catch (SecurityTokenValidationException ex)
+            {
+                return false;
+            }
+            return principal.Identity.IsAuthenticated;
 
         }
     }

@@ -109,7 +109,20 @@ namespace OAuth2ApiClient
             var requestPath = requestId == 0 ? Constant.RessourceUrl : Constant.RessourceUrl + requestId ;
 
             var tokenValid = SendRessourceRequest(accessToken, requestPath);
-            // todo: request refresh token if token not valid
+
+            if (tokenValid == false)
+            {
+                Console.WriteLine("Token invalid, trying to refresh access token...");
+                var refreshedToken = Util.RefreshToken(accessToken).Result;
+                var newTokenValid = SendRessourceRequest(refreshedToken, requestPath);
+
+                if (newTokenValid == false)
+                {
+                    Console.WriteLine("Refresh token expired or access token invalid");
+                }
+            }
+
+
         }
 
         private static bool SendRessourceRequest(TokenResponse accessToken, string requestPath)
