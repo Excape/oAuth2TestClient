@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Services;
-using System.IdentityModel.Tokens;
-using System.Linq;
-using System.Web.Http;
-using Thinktecture.IdentityModel;
+﻿using System.Web.Http;
 using Thinktecture.IdentityModel.WebApi.Authentication.Handler;
 
 namespace TestRessourceServer
 {
     public static class WebApiConfig
     {
-        public static AuthenticationConfiguration configuration = new AuthenticationConfiguration();
+        public static AuthenticationConfiguration Configuration = new AuthenticationConfiguration();
 
         public static void Register(HttpConfiguration config)
         {
@@ -26,7 +20,7 @@ namespace TestRessourceServer
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            configuration.AddJsonWebToken(
+            Configuration.AddJsonWebToken(
                 issuer: "AS",
                 audience: "HsrTestApp",
                 signingKey: "i4SpI3zdts0yIHhfbBIeR4VuG1MJCfM1wcUZ2LVPFWA=",

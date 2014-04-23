@@ -14,7 +14,7 @@ namespace TestRessourceServer.Controllers
         public IHttpActionResult Get(HttpRequestMessage request)
         {
 
-            var authN = new HttpAuthentication(WebApiConfig.configuration);
+            var authN = new HttpAuthentication(WebApiConfig.Configuration);
 
             // Code to minimize time after token expiration when token is still successfully validated. Just for test purposes!
             authN.Configuration.Mappings.First().TokenHandler.Configuration.MaxClockSkew = TimeSpan.FromSeconds(3);
@@ -25,7 +25,7 @@ namespace TestRessourceServer.Controllers
                 {
                     return StatusCode(HttpStatusCode.Forbidden);
                 }
-            } catch (SecurityTokenValidationException ex)
+            } catch (SecurityTokenValidationException)
             {
                 return StatusCode(HttpStatusCode.Forbidden);
             }

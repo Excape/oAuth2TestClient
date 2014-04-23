@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IdentityModel.Tokens;
 using System.Linq;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using Thinktecture.IdentityModel.Client;
 using Constants;
 

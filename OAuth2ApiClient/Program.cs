@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml;
 using Constants;
-using Newtonsoft.Json;
 using OAuth2TestClient;
 using Thinktecture.IdentityModel.Client;
 
@@ -17,8 +13,7 @@ namespace OAuth2ApiClient
 {
     internal class Program
     {
-        private Program p = new Program();
-
+        
         private static void Main(string[] args)
         {
             System.Diagnostics.Debugger.Launch();

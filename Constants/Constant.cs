@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Constants
+﻿namespace Constants
 {
     public class Constant
     {
-        public const string AuthHost = "localhost:44300";
+        public const string AuthHost = "localhost:44301";
         public const string ValidateUri = "http://localhost:55226/api/token";
         public const string ClientId = "TestClient";
         public const string Application = "HsrTestApp";

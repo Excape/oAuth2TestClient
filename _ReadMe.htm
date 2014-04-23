@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>oAuth2 Test Client ReadMe</title>
+    <title>OAuth2TestClient</title>
 </head>
 <body>
     <h1>
@@ -15,20 +15,17 @@
 				<li>Unter Tools > Options den Eintrag Package Manager wählen und "Allow NuGet to download missing packages during build" aktivieren</li>
 			</ul>
 		</li>
-		<li><a href ="https://github.com/thinktecture/Thinktecture.AuthorizationServer">
-			ThinkTecture Authorization Server
-			</a>
-		</li>
-		<li><a href="https://gitp.hsr.ch/scm/svn/STS">HSR STS Identity provider
+		<li><a href ="https://github.com/Excape/Thinktecture.AuthorizationServer">
+			ThinkTecture Authorization Server (fork von r1suter)
 			</a>
 		</li>
 	</ul>	
     <h2>
         Konfiguration</h2>
     <ul>
-        <li>oauthclient-codeflow-protocol.reg und oauthclient-implicit-protocol.reg anpassen auf den Pfad der Exe</li>
+        <li>oauthclient-codeflow-protocol.reg und oauthclient-api-protocol.reg anpassen auf den Pfad von CodeFlowTest.exe bzw. OAuth2ApiClient.exe</li>
 		<li>.reg Files auf dem System installieren
-		<li>Constants.Constant.cs: Serveradressen und Ports anpassen
+		<li>Constant.cs: Serveradressen und Ports anpassen
     </ul>
     <h2>
         Run
@@ -36,12 +33,25 @@
 
     <ol>
         <li>OAuth2TestClient.sln öffnen</li>
-        <li>Projekt CodeFlowTest als Startup Projekt definieren</li>
+        <li>Projekt CodeFlowTest oder OAuth2ApiClient als Startup Projekt definieren</li>
         <li>Mit F5 Starten</li>
 		<li>Der Link wird im Standardbrowser geöffnet. Der IE unterstützt allerdings keine Weiterleitung auf ein eigenes Protokoll.
 			Daher muss der Link in einem anderen Browser geöffnet werden
 		</li>
     </ol>
+	
+	<h2>Projekte</h2>
+	
+	<h3>CodeFlowTest</h3>
+	<p>Der Browser wird mit einer URL für den Code-Flow geöffnet. Der Consent-Screen wird angezeigt. Klickt der User auf "Allow", wird redirected auf 
+		oauthclientcode:// mit dem authorization code als Parameter. Damit wird die Applikation geöffnet, die ein Access-token anfordert. Dieses wird 
+		ausgelesen und mit dem TestRessourceServer alle 10 Sek. überprüft, bis der Token ungültig wird. Danach wird mit dem refresh-token ein neuer access token
+		angefordert und wieder überprüft bis der abläuft, usw. </p>
+	
+	<h3>OAuth2ApiClient</h3>
+	<p>Ähnlich wie CodeFlowTest, hier werden aber nach Erhalt des access token Ressourcen vom TestRessourceServer abgefragt und mit XML geparsed. Dabei wird das token
+		als Header gesendet und beim TestRessourceServer überprüft.</p>
+		
 
 </body>
 </html>

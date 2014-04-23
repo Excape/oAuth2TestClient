@@ -10,8 +10,7 @@
 namespace TestRessourceServer.Models
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Movie
     {
         public int MovieId { get; set; }
