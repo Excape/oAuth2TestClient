@@ -55,7 +55,7 @@ namespace OAuth2TestClient
                 }
                 else
                 {
-                    throw ex;
+                    throw;
                 }
             }
 
@@ -100,7 +100,7 @@ namespace OAuth2TestClient
                 }
                 else
                 {
-                    throw ex;
+                    throw;
                 }
             }
             return refreshedToken;
